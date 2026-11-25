@@ -31,7 +31,7 @@ async function api(path, opts = {}) {
   let data = {};
   try { data = await res.json(); } catch { /* пусто */ }
   if (res.status === 401 && !opts.auth) { S.me = null; route(); throw new Error(data.error || 'Нужно войти'); }
-  if (!res.ok) throw new Error(data.error || 'Ошибка связи');
+  if (!res.ok) throw new Error(data.error || 'Ошибка связи (' + res.status + ')');
   return data;
 }
 
