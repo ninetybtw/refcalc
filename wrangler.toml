@@ -1,0 +1,17 @@
+name = "referee-pay"
+main = "src/worker.js"
+compatibility_date = "2025-09-01"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+run_worker_first = ["/api/*"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "referee-pay"
+database_id = "ВСТАВЬТЕ_СЮДА_ID_БАЗЫ"
+
+# Необязательно: код приглашения, без которого нельзя зарегистрироваться.
+# Включается командой: npx wrangler secret put INVITE_CODE
